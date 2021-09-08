@@ -12,7 +12,7 @@ function required(key, defaultValue = undefined) {
 export const config = {
   jwt: {
     secretkey: required('JWT_SECRET'),
-    expiresInSec: required('JWT_EXPIRES_SEC', 86400),
+    expiresInSec: required('JWT_EXPIRES_SEC', 172800),
   },
   bcrypt: {
     saltRounds: parseInt(required('BCRYPT_SALT_ROUNDS', 12)), // parseInt를 써서 숫자로 변환!
