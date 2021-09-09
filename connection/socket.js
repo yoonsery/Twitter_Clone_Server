@@ -9,12 +9,13 @@ class Socket {
         origin: '*',
       },
     });
+
     this.io.use((socket, next) => {
       const token = socket.handshake.auth.token;
       if (!token) {
         return next(new Error('Authentication error'));
       }
-      jwt.verify(token, config.jwt.secretkey, (error, decoded) => {
+      jwt.verify(token, config.jwt.secretKey, (error, decoded) => {
         if (error) {
           return next(new Error('Authentication error'));
         }
