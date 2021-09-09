@@ -5,7 +5,6 @@ let users = [
     password: '$2b$10$sJcuyhKQgt8oWv2blptjUuV6hsakkZYowIMfHT27fve8IgdX6bq6q',
     name: 'Noah',
     email: 'nonono@eml.com',
-    url: 'https://random.dog/',
   },
 ];
 

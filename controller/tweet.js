@@ -27,7 +27,7 @@ export async function createTweet(req, res) {
 export async function updateTweet(req, res) {
   const id = req.params.id;
   const text = req.body.text;
-  const tweet = await tweetRepository.getById(id);
+  const tweet = await tweetRepository.getById(id); // 현재 id와 일치하는지 확인하기 위해 가져옴
   if (!tweet) {
     return res.status(404).json({ message: `Tweet not found: ${id}` });
   }
