@@ -12,9 +12,12 @@ function required(key, defaultValue = undefined) {
 export const config = {
   jwt: {
     secretkey: required('JWT_SECRET'),
-    expiresInSec: required('JWT_EXPIRES_SEC', 172800),
+    expiresInSec: parseInt(required('JWT_EXPIRES_SEC', 172800)),
   },
   bcrypt: {
-    saltRounds: parseInt(required('BCRYPT_SALT_ROUNDS', 12)), // parseInt를 써서 숫자로 변환!
+    saltRounds: parseInt(required('BCRYPT_SALT_ROUNDS', 12)),
+  },
+  host: {
+    port: parseInt(required('HOST_PORT', 8080)),
   },
 };
