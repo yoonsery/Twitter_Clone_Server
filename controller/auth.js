@@ -4,7 +4,7 @@ import 'express-async-errors';
 import * as userRepository from '../data/auth.js';
 import { config } from '../config.js';
 
-const jwtSecretKey = config.jwt.secretkey;
+const jwtSecretKey = config.jwt.secretKey;
 const jwtExpiresInDays = config.jwt.expiresInSec;
 const bcryptSaltRounds = config.bcrypt.saltRounds;
 
