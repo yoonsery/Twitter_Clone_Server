@@ -4,7 +4,14 @@ let users = [
     username: 'noah',
     password: '$2b$10$sJcuyhKQgt8oWv2blptjUuV6hsakkZYowIMfHT27fve8IgdX6bq6q',
     name: 'Noah',
-    email: 'nonono@eml.com',
+    email: 'nonono@email.com',
+  },
+  {
+    id: '2',
+    username: 'ona',
+    password: '$2b$10$sJcuyhKQgt8oWv2blptjUuV6hsakkZYowIMfHT27fve8IgdX6bq6q',
+    name: 'Ona',
+    email: 'ona@email.com',
   },
 ];
 
