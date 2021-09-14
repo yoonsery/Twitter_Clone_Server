@@ -1,23 +1,46 @@
-import { db } from '../db/database.js';
+import SQ from 'sequelize';
+import { sequelize } from '../db/database.js';
+
+const DataTypes = SQ.DataTypes;
+
+const User = sequelize.define(
+  'user',
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      allowNull: false,
+      primaryKey: true,
+    },
+    username: {
+      type: DataTypes.STRING(45),
+      allowNull: false,
+    },
+    password: {
+      type: DataTypes.STRING(128),
+      allowNull: false,
+    },
+    name: {
+      type: DataTypes.STRING(128),
+      allowNull: false,
+    },
+    email: {
+      type: DataTypes.STRING(128),
+      allowNull: false,
+    },
+    url: DataTypes.TEXT,
+  },
+  { timestamps: false }
+);
 
 export async function findByUsername(username) {
-  return db
-    .execute('SELECT * FROM users WHERE username=?', [username])
-    .then((result) => result[0][0]); // 로그로 result값을 확인해보면 이중배열의 첫번째 값을 가져와야함
+  return User.findOne({ where: { username } });
 }
 
 export async function findById(id) {
-  return db
-    .execute('SELECT * FROM users WHERE id=?', [id])
-    .then((result) => result[0][0]);
+  return User.findByPk(id);
 }
 
 export async function createUser(user) {
-  const { username, password, name, email, url } = user;
-  return db
-    .execute(
-      'INSERT INTO users (username, password, name, email, url) VALUES (?,?,?,?,?)', // database에서 자동으로 증가하는 id를 만드므로 따로 id 명시 안함
-      [username, password, name, email, url]
-    )
-    .then((result) => result[0].insertId);
+  return User.create(user).then((data) => data.dataValues.id);
 }
