@@ -27,7 +27,7 @@ app.use((error, req, res, next) => {
 });
 
 // db.getConnection().then(console.log);
-sequelize.sync().then((client) => {
+sequelize.sync().then(() => {
   const server = app.listen(config.host.port);
   initSocket(server);
 });
