@@ -1,12 +1,12 @@
-import { useVirtualId } from '../database/database.js';
 import Mongoose from 'mongoose';
+import { useVirtualId } from '../database/database.js';
 
 const userSchema = new Mongoose.Schema({
   username: { type: String, require: true },
   name: { type: String, require: true },
   email: { type: String, require: true },
   password: { type: String, require: true },
-  url: { type: String, require: true },
+  url: String,
 });
 
 useVirtualId(userSchema);
