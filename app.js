@@ -35,6 +35,6 @@ app.use((error, req, res, next) => {
 
 sequelize.sync().then((data) => {
   console.log(`Server is started...🏃🏻‍♀️ ${new Date()}`);
-  const server = app.listen(config.db.port);
+  const server = app.listen(config.port);
   initSocket(server);
 });
