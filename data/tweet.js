@@ -62,9 +62,7 @@ export async function getById(id) {
 
 export async function create(text, userId) {
   return Tweet.create({ text, userId }) //
-    .then((data) => {
-      getById(data.dataValues.id);
-    });
+    .then((data) => getById(data.dataValues.id));
 }
 
 export async function update(id, text) {
